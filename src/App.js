@@ -10,43 +10,43 @@ import * as BooksAPI from './BooksAPI';
 
 function App() {
 
-/**
- * State Variable
- * 
- * Holds the books fetched from BooksAPI.js
- */
- const [books, setBooks] = useState([]);
-
-/**
- * 
- * @param {*} book 
- * @param {*} shelf 
- */
- const updateAPI = (book, shelf) => {
-  BooksAPI.update(book, shelf);
-};
-
-/**
- * 
- */
-useEffect(() => {
-  BooksAPI.getAll().then((result) => {
-      setBooks(result)
-  })
-}, [books]);
+    /**
+     * State Variables
+     *
+     * "books" holds the book information fetched from BooksAPI.js
+     * "isLoading" is Boolean used to trigger retrieval from BooksAPI.js
+     */
+    const [books, setBooks] = useState([]);
+    const [isLoading, setIsLoading] = React.useState(true);
 
 
 
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element={<Home />}/>
-          <Route exact path="search" element={<Search />}/>
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
+    /**
+     *
+     */
+    useEffect(() => {
+
+        if (isLoading){
+            BooksAPI.getAll().then((result) => {
+                setBooks(result)
+                console.log("Debug", books)
+                setIsLoading(false)
+            })}
+    }, );
+
+
+
+
+    return (
+        <div className="App">
+            <BrowserRouter>
+                <Routes>
+                    <Route exact path="/" element={<Home books={books} />}/>
+                    <Route exact path="search" element={<Search />}/>
+                </Routes>
+            </BrowserRouter>
+        </div>
+    );
 }
 
 

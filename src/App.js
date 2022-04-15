@@ -22,7 +22,7 @@ function App() {
 
 
     /**
-     * useEffect Hook
+     * "useEffect" Hook
      *
      * When "isLoading" is set 'true' a getAll call will update the books object state from the BooksAPI.js
      */
@@ -30,7 +30,7 @@ function App() {
         if (isLoading){
             BooksAPI.getAll().then((result) => {
                 setBooks(result)
-                console.log("Debug", books)
+                console.log("App.js Books from server", books)
                 setIsLoading(false)
             })}
     }, );

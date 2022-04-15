@@ -13,8 +13,8 @@ function App() {
     /**
      * State Variables
      *
-     * "books" holds the book information fetched from BooksAPI.js
-     * "isLoading" is Boolean used to trigger retrieval from BooksAPI.js
+     * "books" holds the book objects fetched from BooksAPI.js
+     * "isLoading" is Boolean used to trigger communications with BooksAPI.js within useEffect
      */
     const [books, setBooks] = useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
@@ -22,10 +22,11 @@ function App() {
 
 
     /**
+     * useEffect Hook
      *
+     * When "isLoading" is set 'true' a getAll call will update the books object state from the BooksAPI.js
      */
     useEffect(() => {
-
         if (isLoading){
             BooksAPI.getAll().then((result) => {
                 setBooks(result)
@@ -35,13 +36,17 @@ function App() {
     }, );
 
 
+    const updatedShelf = (book, shelf) => {
+        BooksAPI.update(book, shelf).then(() => {
+            setIsLoading(true)
+        })}
 
 
     return (
         <div className="App">
             <BrowserRouter>
                 <Routes>
-                    <Route exact path="/" element={<Home books={books} />}/>
+                    <Route path='/' element={<Home books ={books} render = {(book,shelf) => updatedShelf(book,shelf)}/>} />
                     <Route exact path="search" element={<Search />}/>
                 </Routes>
             </BrowserRouter>

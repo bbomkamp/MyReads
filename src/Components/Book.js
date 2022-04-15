@@ -3,7 +3,7 @@ import React from 'react';
 function Books(props)  {
 
     return(
-        <div>
+        <>
             {props.books.map(book => props.shelf === book.shelf &&
                     <li key={book.id}>
                         <div className="book">
@@ -23,7 +23,7 @@ function Books(props)  {
                         </div>
                     </li> )
             }
-        </div>
+        </>
     )
 }
 export default Books;

@@ -2,6 +2,12 @@ import React from "react";
 import {useNavigate} from "react-router-dom";
 import '../App.css';
 
+/**
+ * "SearchButton.js" navigates to the '/search' route, onClick.
+ *
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function SearchButton(){
 
     /**

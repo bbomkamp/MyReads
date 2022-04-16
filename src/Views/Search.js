@@ -19,7 +19,10 @@ function Search(props){
 
 
     /**
+     * 'useEffect' Hook.
      *
+     * When State variable 'search' is changed a 'POST' call will be made to the "BooksAPI.js".
+     * Results will be stored in State variable 'books'.
      */
     useEffect(() => {
         if (search.length > 0){
@@ -45,6 +48,7 @@ function Search(props){
      */
     const navigate = useNavigate();
 
+
     return(
         <div className="search-books">
             <div className="search-books-bar">
@@ -62,6 +66,7 @@ function Search(props){
 
                 </div>
             </div>
+
             <div className="search-books-results">
                 <ol className="books-grid">
                     {
@@ -83,11 +88,16 @@ function Search(props){
                                                             <option value="read">Read</option>
                                                             <option value="none" selected>None</option>
                                                         </select>
+
+                                                        {/*Create Updated Shelf*/}
                                                         {updatedShelf}
+
                                                     </div>
                                                 </div>
+
                                                 <div className="book-title">{book.title}</div>
                                                 <div className="book-authors">{book.authors}</div>
+
                                             </div>
                                         </li>
                                     )

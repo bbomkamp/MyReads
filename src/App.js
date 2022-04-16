@@ -41,7 +41,8 @@ function App() {
 
 
     /**
-     * 'updatedShelf' calls "BooksAPI.js" and preforms a 'PUT' call, updating the shelf of each book in the collection.
+     * 'updatedShelf' calls "BooksAPI.js" and preforms a 'PUT' call, updating the shelf of each book in the collection and
+     * its shelf.
      *
      * @param book
      * @param shelf

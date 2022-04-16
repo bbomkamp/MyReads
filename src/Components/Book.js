@@ -1,5 +1,14 @@
 import React from 'react';
 
+
+
+/**
+ * "Book.js" component maps the 'props' object and returns it formatted for rendering.
+ *
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function Books(props)  {
 
     return(
@@ -26,4 +35,5 @@ function Books(props)  {
         </>
     )
 }
+
 export default Books;

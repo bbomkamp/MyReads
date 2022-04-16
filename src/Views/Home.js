@@ -3,6 +3,17 @@ import '../App.css';
 import Book from "../Components/Book";
 import Search from '../Components/SearchButton';
 
+
+/**
+ * 'BooksApp' returns the Home Page of this webapp. It contains three(3) shelves; "Currently Reading",
+ * "Want to Read", and "Read". The user can move books from one shelf to another.
+ *
+ * The "SearchButton.js" component is implemented to change to a new route.
+ *
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function BooksApp (props) {
 
     return (
@@ -48,12 +59,10 @@ function BooksApp (props) {
             </div>
 
             {/*Search Button*/}
-            <Search/>
+            <Search books ={props.books}/>
 
         </div>
-
     )
-
 }
 
 export default BooksApp;

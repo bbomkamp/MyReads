@@ -2,10 +2,11 @@ import React from 'react';
 import * as BooksAPI from './../BooksAPI';
 import { useState ,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import updatedShelf from '../App'
 
 
 
-function Search(){
+function Search(props){
 
     /**
      * State Variables.
@@ -63,9 +64,34 @@ function Search(){
             </div>
             <div className="search-books-results">
                 <ol className="books-grid">
-
-
-
+                    {
+                        books.length > 0 && search.length > 0 ?
+                            books
+                                .filter((book) => book.hasOwnProperty('imageLinks'))
+                                .map(book => {
+                                    props.books.map(b => book.id === b.id && (book.shelf = b.shelf) );
+                                    return (
+                                        <li key={book.id}>
+                                            <div className="book">
+                                                <div className="book-top">
+                                                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
+                                                    <div className="book-shelf-changer">
+                                                        <select value={book.shelf} onChange={e => props.render(book, e.target.value)}>
+                                                            <option value="move" disabled>Move to...</option>
+                                                            <option value="currentlyReading" >Currently Reading</option>
+                                                            <option value="wantToRead">Want to Read</option>
+                                                            <option value="read">Read</option>
+                                                            <option value="none" selected>None</option>
+                                                        </select>
+                                                        {updatedShelf}
+                                                    </div>
+                                                </div>
+                                                <div className="book-title">{book.title}</div>
+                                                <div className="book-authors">{book.authors}</div>
+                                            </div>
+                                        </li>
+                                    )
+                                }) : ''}
                 </ol>
             </div>
         </div>

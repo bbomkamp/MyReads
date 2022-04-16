@@ -62,7 +62,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path='/' element={<Home books ={books} render = {(book,shelf) => updatedShelf(book,shelf)}/>} />
-                    <Route exact path="search" element={<Search />}/>
+                    <Route exact path="search" element={<Search books ={books} render = {(book,shelf) => updatedShelf(book,shelf)}/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

@@ -47,7 +47,9 @@ function App() {
      * @param book
      * @param shelf
      */
+
     const updatedShelf = (book, shelf) => {
+        console.log("updatedShelf")
         BooksAPI.update(book, shelf).then(() => {
             setIsLoading(true)
         })}
@@ -62,8 +64,8 @@ function App() {
         <div className="App">
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<Home books ={books} render = {(book,shelf) => updatedShelf(book,shelf)}/>} />
-                    <Route exact path="search" element={<Search books ={books} render = {(book,shelf) => updatedShelf(book,shelf)}/>}/>
+                    <Route path='/' element={<Home books={books} render={updatedShelf}/>} />
+                    <Route exact path="/search" element={<Search books={books} render={updatedShelf}/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

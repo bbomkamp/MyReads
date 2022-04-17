@@ -2,7 +2,6 @@ import React from 'react';
 import * as BooksAPI from './../BooksAPI';
 import { useState ,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import updatedShelf from '../App'
 
 
 
@@ -70,7 +69,7 @@ function Search(props){
             <div className="search-books-results">
                 <ol className="books-grid">
                     {
-                        books.length > 0 && search.length > 0 ?
+                        (books.length > 0 && search.length > 0) ?
                             books
                                 .filter((book) => book.hasOwnProperty('imageLinks'))
                                 .map(book => {
@@ -81,16 +80,13 @@ function Search(props){
                                                 <div className="book-top">
                                                     <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
                                                     <div className="book-shelf-changer">
-                                                        <select value={book.shelf} onChange={e => props.render(book, e.target.value)}>
+                                                        <select value={book.shelf || "none"} onChange={e => props.render(book, e.target.value)}>
                                                             <option value="move" disabled>Move to...</option>
                                                             <option value="currentlyReading" >Currently Reading</option>
                                                             <option value="wantToRead">Want to Read</option>
                                                             <option value="read">Read</option>
-                                                            <option value="none" selected>None</option>
+                                                            <option value="none">None</option>
                                                         </select>
-
-                                                        {/*Create Updated Shelf*/}
-                                                        {updatedShelf}
 
                                                     </div>
                                                 </div>

@@ -1,3 +1,12 @@
+# MyReads BookShelf App
+A Udacity Project from the React Nanodegree Program.
+
+This program gives the user a library complete with virtual shelfs to help the user keep track of the books in
+thier library.
+
+![Screen Shot](src\images\screenshot1.png)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -6,6 +6,7 @@ import Search from './Views/Search';
 import { useState, useEffect } from 'react';
 import * as BooksAPI from './BooksAPI';
 
+
 /**
  * 'App()' handles and holds the state of the users bookshelf and the status of their book collection.
  * 'App()' also handles the Routes of this app.
@@ -34,7 +35,6 @@ function App() {
         if (isLoading){
             BooksAPI.getAll().then((result) => {
                 setBooks(result)
-                console.log("App.js - useEffect - books", books)
                 setIsLoading(false)
             })}
     }, );
@@ -49,7 +49,6 @@ function App() {
      */
 
     const updateShelf = (book, shelf) => {
-        console.log("updatedShelf")
         BooksAPI.update(book, shelf).then(() => {
             setIsLoading(true)
         })}
@@ -64,7 +63,7 @@ function App() {
         <div className="App">
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<Home books={books} updatedShelf={updateShelf}/>} />
+                    <Route path='/' element={<Home books={books} updatedShelf={updateShelf} isLoading={isLoading}/>} />
                     <Route exact path="/search" element={<Search books={books} render={updateShelf}/>}/>
                 </Routes>
             </BrowserRouter>

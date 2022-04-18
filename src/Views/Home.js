@@ -6,6 +6,7 @@ import Search from '../Components/SearchButton';
 
 
 
+
 /**
  * 'BooksApp' returns the Home Page of this webapp. It contains three(3) shelves; "Currently Reading",
  * "Want to Read", and "Read". The user can move books from one shelf to another.
@@ -17,7 +18,7 @@ import Search from '../Components/SearchButton';
  * @constructor
  */
 function BooksApp (props) {
-
+ 
     return (
 
         // Header

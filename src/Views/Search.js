@@ -28,7 +28,6 @@ function Search(props){
             const results = Promise.resolve(BooksAPI.search(search));
             results.then(function(result){
                 setBooks(result);
-                console.log("Search.js-useEffect-books", books)
             })
         } else {
             setBooks([])

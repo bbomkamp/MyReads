@@ -1,11 +1,20 @@
 # MyReads BookShelf App
 A Udacity Project from the React Nanodegree Program.
 
-This program gives the user a library complete with virtual shelfs to help the user keep track of the books in
-thier library.
+MyReads is a library with virtual shelves<br/>
+![ScreenShot](../MyReads/src/images/screenshot1.png)<br/>
 
-![Screen Shot](src\images\screenshot1.png)
+## Three Shelves
+MyReads allows the user to move books from three different shelves.<br/>
+1: Currently Reading<br/>
+2: Want to Read<br/>
+3: Read<br/>
+With a "none" option that will remove the title from the library.
+![Screenshot2](../MyReads/src/images/screenshot2.png)<br/>
 
+## Search
+MyReads allows the user to search for new books to add to their virtual library.
+![Screenshot3](../MyReads/src/images/screenshot3.png)
 
 # Getting Started with Create React App
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Views/Home';
 import Search from './Views/Search';
 import { useState, useEffect } from 'react';
@@ -32,12 +32,13 @@ function App() {
      * When 'isLoading' is set 'true' a getAll call will update the books object state from the "BooksAPI.js".
      */
     useEffect(() => {
-        if (isLoading){
+        if (isLoading) {
             BooksAPI.getAll().then((result) => {
                 setBooks(result)
                 setIsLoading(false)
-            })}
-    }, );
+            })
+        }
+    });
 
 
     /**
@@ -51,7 +52,8 @@ function App() {
     const updateShelf = (book, shelf) => {
         BooksAPI.update(book, shelf).then(() => {
             setIsLoading(true)
-        })}
+        })
+    }
 
 
     /**
@@ -63,8 +65,8 @@ function App() {
         <div className="App">
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<Home books={books} updatedShelf={updateShelf} isLoading={isLoading}/>} />
-                    <Route exact path="/search" element={<Search books={books} render={updateShelf}/>}/>
+                    <Route path='/' element={<Home books={books} updatedShelf={updateShelf}  />} />
+                    <Route exact path="/search" element={<Search books={books} updatedShelf={updateShelf} />} />
                 </Routes>
             </BrowserRouter>
         </div>

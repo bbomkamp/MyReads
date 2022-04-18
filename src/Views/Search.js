@@ -1,11 +1,11 @@
 import React from 'react';
 import * as BooksAPI from './../BooksAPI';
-import { useState ,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
 
-function Search(props){
+function Search(props) {
 
     /**
      * State Variables.
@@ -13,7 +13,7 @@ function Search(props){
      * "search" holds the search term the user has inputted into search bar. Initialized as an empty string.
      * "books" holds the search results retrieved from the "BooksAPI.js". Initialized as an empty object.
      */
-    const [search , setSearch] = useState('');
+    const [search, setSearch] = useState('');
     const [books, setBooks] = useState([]);
 
 
@@ -22,11 +22,12 @@ function Search(props){
      *
      * When State variable 'search' is changed a 'POST' call will be made to the "BooksAPI.js".
      * Results will be stored in State variable 'books'.
+     *  
      */
     useEffect(() => {
-        if (search.length > 0){
+        if (search.length > 0) {
             const results = Promise.resolve(BooksAPI.search(search));
-            results.then(function(result){
+            results.then(function (result) {
                 setBooks(result);
             })
         } else {
@@ -46,8 +47,7 @@ function Search(props){
      */
     const navigate = useNavigate();
 
-
-    return(
+    return (
         <div className="search-books">
             <div className="search-books-bar">
                 <button className="close-search" onClick={() => navigate('/')}>Close</button>
@@ -60,7 +60,7 @@ function Search(props){
               However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
               you don't find a specific author or title. Every search is limited by search terms.
             */}
-                    <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search by title or author"/>
+                    <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search by title or author" />
 
                 </div>
             </div>
@@ -68,18 +68,18 @@ function Search(props){
             <div className="search-books-results">
                 <ol className="books-grid">
                     {
-                        (books.length > 0 && search.length > 0) ?
+                        (search.length > 0 && books.length > 0) ?
                             books
                                 .filter((book) => book.hasOwnProperty('imageLinks'))
                                 .map(book => {
-                                    props.books.map(b => book.id === b.id && (book.shelf = b.shelf) );
+                                    props.books.map(b => book.id === b.id && (book.shelf = b.shelf));
                                     return (
                                         <li key={book.id}>
                                             <div className="book">
                                                 <div className="book-top">
                                                     <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
                                                     <div className="book-shelf-changer">
-                                                        <select value={book.shelf || "none"} onChange={e => props.render(book, e.target.value) || navigate('/')}>
+                                                        <select value={book.shelf || "none"} onChange={e => props.updatedShelf(book, e.target.value) || navigate('/')}>
                                                             <option value="move" disabled>Move to...</option>
                                                             <option value="currentlyReading" >Currently Reading</option>
                                                             <option value="wantToRead">Want to Read</option>

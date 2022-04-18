@@ -71,7 +71,10 @@ body, .app {
 
 .open-search button:hover {
   background-color: rgb(0, 102, 0);
+  transform: scale(1.4);
+  transition:transform 1s linear;
 }
+
 
 
 /* search page */
@@ -176,6 +179,7 @@ button:active {
   background-position: center;
   background-size: 20px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
 }
 
 .book-shelf-changer select {
@@ -185,11 +189,23 @@ button:active {
   cursor: pointer;
 }
 
+.book-shelf-changer:hover {
+  background-color: rgb(0, 102, 0);
+  transform: scale(1.1);
+  transition:transform 1s linear;
+}
+
 /* book cover */
 
 .book-cover {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   background: #eee;
+  
+}
+
+.book-cover:hover{
+  transform: scale(1.1);
+  transition:transform 1s linear;
 }
 
 .book-cover-title {

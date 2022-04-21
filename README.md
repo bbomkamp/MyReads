@@ -1,5 +1,5 @@
 # MyReads BookShelf App
-A Udacity Project from the React Nanodegree Program.
+A Project from the Udacity React Nanodegree Program.
 
 MyReads is a library with virtual shelves<br/>
 ![Screenshot 2022-04-18 180407](https://user-images.githubusercontent.com/37642026/163893365-ec9689f2-9092-430b-971b-ab9dfdf268f1.png)
@@ -17,6 +17,13 @@ With a "none" option that will remove the title from the library.
 ## Search
 MyReads allows the user to search for new books to add to their virtual library.
 ![Screenshot 2022-04-18 182942](https://user-images.githubusercontent.com/37642026/163893447-24c7ab51-c86b-4ca1-923c-60bf6cef5f10.png)
+
+## Udacity API
+The search from BooksAPI is limited to a particular set of search terms. You can find these search terms here: https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
+
+However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
+you don't find a specific author or title. Every search is limited by search terms. <br/>
+
 
 
 # Getting Started with Create React App
